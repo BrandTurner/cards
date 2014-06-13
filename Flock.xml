@@ -1,0 +1,338 @@
+<document xmlns="http://schemas.twitter.com/cards/4.0">
+    <fields>
+        <image name="logo">
+            <constraints desiredHeight="50" desiredWidth="50" />
+        </image>
+        <url name="logo_url" />
+ 
+        <image name="player_image">
+            <sources>
+                <metaTag>twitter:image:media</metaTag>
+                <metaTag>twitter:image:media:src</metaTag>
+            </sources>
+            <constraints desiredWidth="480" desiredHeight="480"/>
+        </image>
+        
+        <text name="player_stream_url">
+            <sources>
+                <metaTag>twitter:player:stream:url</metaTag>
+            </sources>
+        </text>
+        
+        <text name="player_content">
+            <sources>
+                <metaTag>twitter:player:stream:content</metaTag>
+            </sources>
+            <constraints maxLength="200"/>
+        </text>
+        
+        <text name="player_url">
+            <sources>
+                <metaTag>twitter:player:url</metaTag>
+            </sources>
+            <constraints maxLength="200"/>
+        </text>
+        
+        <text name="player_width">
+            <sources>
+                <metaTag>twitter:image:media:width</metaTag>
+            </sources>
+            <constraints maxLength="4"/>
+        </text>
+        
+        <text name="player_height">
+            <sources>
+                <metaTag>twitter:image:media:height</metaTag>
+            </sources>
+            <constraints maxLength="4"/>
+        </text>
+        
+        <text name="player_stream_content_type">
+            <sources>
+                <metaTag>twitter:player:stream:content</metaTag>
+            </sources>
+            <constraints maxLength="20"/>
+        </text>
+        
+        <text name="artist">
+            <sources>
+                <metaTag>twitter:text:artist</metaTag>
+            </sources>
+            <constraints maxLength="200"/>
+        </text>
+        <user name="user">
+            <sources>
+                <constant>0</constant>
+            </sources>
+            <attributes>
+                <attribute name="viewing_user_obfuscated_email_address">obfuscatedEmailAddress</attribute>
+            </attributes>
+        </user>
+        <text name="response">
+            <sources>
+                <metaTag>twitter:text:response</metaTag>
+            </sources>
+        </text>
+        <text name="count">
+            <sources>
+                <metaTag>twitter:text:count</metaTag>
+            </sources>
+        </text>
+        <text name="cta">
+            <sources>
+                <metaTag>twitter:text:cta</metaTag>
+            </sources>
+        </text>
+        <text name="tweet_text">
+            <sources>
+                <metaTag>twitter:text:cta_text</metaTag>
+            </sources>
+        </text>
+    </fields>
+    <card>
+        <name>flock</name>
+        <requiredFields>
+            <field>title</field>
+            <field>site</field>
+        </requiredFields>
+        <forward name="forward_summary_tweetdetail">
+            <field full="card_url" forward="card_url"/>
+            <field full="title" forward="title"/>
+            <field full="site" forward="site"/>
+        </forward>
+        <styles>
+            <style name="logo_image_container">
+                <width>60</width>
+                <height>60</height>
+                <horizontalAlign>middle</horizontalAlign>
+                <verticalAlign>middle</verticalAlign>
+                <margin>0,12,0,0</margin>
+            </style>
+            <style name="logo_image">
+                <height>fill</height>
+                <width>fill</width>
+                <horizontalAlign>middle</horizontalAlign>
+                <verticalAlign>start</verticalAlign>
+            </style>
+            <style name="response_success">
+                <width>fit</width>
+                <margin>0,0,8,0</margin>
+                <color>#00FF00</color>
+                <fontSize>18</fontSize>
+                <maxLines>2</maxLines>
+                <overflow>ellipsis</overflow>
+                <lineHeight>1.0</lineHeight>
+                <horizontalAlign>middle</horizontalAlign>
+            </style>
+            <style name="response_failure">
+                <width>fit</width>
+                <margin>0,0,0,0</margin>
+                <color>#FF0000</color>
+                <fontSize>18</fontSize>
+                <maxLines>2</maxLines>
+                <overflow>ellipsis</overflow>
+                <lineHeight>1.0</lineHeight>
+            </style>
+            <style name="choose_zero">
+                <visibleChildIndex>0</visibleChildIndex>
+            </style>
+            <style name="choose_one">
+                <visibleChildIndex>1</visibleChildIndex>
+            </style>
+            <style name="choose_two">
+                <visibleChildIndex>2</visibleChildIndex>
+            </style>
+            <style name="choose_three">
+                <visibleChildIndex>3</visibleChildIndex>
+            </style>
+            <style name="choose_four">
+                <visibleChildIndex>4</visibleChildIndex>
+            </style>
+            <style name="title">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>8,0,0,0</margin>
+                <color>#0d1305</color>
+                <fontName>Helvetica Neue</fontName>
+                <fontSize>13</fontSize>
+                <maxLines>2</maxLines>
+                <fontBold>true</fontBold>
+                <overflow>ellipsis</overflow>
+                <lineHeight>1.0</lineHeight>
+            </style>
+            <style name="secondary">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>4,0,4,0</margin>
+                <color>#75796f</color>
+                <fontName>Helvetica Neue</fontName>
+                <fontSize>13</fontSize>
+                <maxLines>5</maxLines>
+                <lineHeight>1.2</lineHeight>
+                <overflow>ellipsis</overflow>
+            </style>
+            <style name="top">
+                <padding>4,4,4,4</padding>
+            </style>
+            <style name="sub_highlight">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>0,0,4,0</margin>
+                <padding>0,0,0,0</padding>
+                <color>#0d1305</color>
+                <fontSize>13</fontSize>
+                <fontBold>true</fontBold>
+                <maxLines>1</maxLines>
+                <overflow>ellipsis</overflow>
+            </style>
+            <style name="sub_title">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>0,0,0,0</margin>
+                <padding>0,0,0,0</padding>
+                <color>#0d1305</color>
+                <fontSize>13</fontSize>
+                <maxLines>1</maxLines>
+                <overflow>ellipsis</overflow>
+                <lineHeight>1.2</lineHeight>
+            </style>
+            <style name="small_image">
+                <horizontalAlign>middle</horizontalAlign>
+                <verticalAlign>start</verticalAlign>
+                <width>fill</width>
+            </style>
+            <style name="location_image">
+                <horizontalAlign>middle</horizontalAlign>
+                <verticalAlign>start</verticalAlign>
+                <height>20</height>
+                <width>20</width>
+            </style>
+            <style name="progress_bar">
+                <backgroundColor>#c7cbc0</backgroundColor>
+                <margin>8,4,8,4</margin>
+                <height>8</height>
+                <width>fill</width>
+                <cornerRadius>4</cornerRadius>
+            </style>
+            <style name="progress_bar_inner">
+                <backgroundColor>#7bb91f</backgroundColor>
+                <margin>0,0,0,0</margin>
+                <padding>0,0,0,0</padding>
+                <height>8</height>
+                <width>100</width>
+                <cornerRadius>4</cornerRadius>
+            </style>
+        </styles>
+        <apiEndpoints>
+            <apiEndpoint id="proxy_onload">
+                <externalRequest method="GET" url="http://www.birdops.com/card/api/1">
+                </externalRequest>
+            </apiEndpoint>
+            <apiEndpoint id="proxy_onclick">
+                <externalRequest method="GET" url="http://www.birdops.com/card/api/1">
+                </externalRequest>
+            </apiEndpoint>
+        </apiEndpoints>
+        <actions>
+            <action id="onload">
+                <apiRequest onRequestFailure="onload_failure" apiEndpoint="proxy_onload" />
+            </action>
+            <action id="onload_failure">
+                <applyStyles>
+                    <style element="master">choose_two</style>
+                </applyStyles>
+            </action>
+            <action id="onclick">
+                <apiRequest apiEndpoint="proxy_onclick" onRequestFailure="onclick_failure" onRequestSuccess="onclick_success" />
+            </action>
+            <action id="onclick_success">
+                <applyStyles>
+                    <style element="master">choose_one</style>
+                </applyStyles>
+            </action>
+            <action id="onclick_failure">
+                <applyStyles>
+                    <style element="master">choose_three</style>
+                </applyStyles>
+            </action>
+            <action id="compose_tweet_success">
+                <applyStyles>
+                    <style element="master">choose_four</style>
+                </applyStyles>
+            </action>
+            <action id="compose_status" onSuccess="compose_tweet_success">
+                <composeTweet >{{tweet_text}}</composeTweet>
+            </action>
+        </actions>
+        <roots>
+            <root onLoad="onload" devices="Web,iPhone,iPad,Android" platformMin="6">
+                <container width="fill">
+                    <component name="attribution"/>
+                    <container layout="horizontal" width="fill">
+                        <if exists="logo">
+                            <then>
+                                <container class="logo_image_container">
+                                    <image class="logo_image">
+                                        <src>{{logo}}</src>
+                                    </image>
+                                </container>
+                            </then>
+                        </if>
+                        
+                        <component name="title"/>
+                    </container>
+                    <container width="fill">
+                        <component name="description"/>
+                    </container>
+                     <container class="top" width="fill" layout="vertical">
+                        <player width="fill">
+                            <stream>
+                                <url>{{player_stream_url}}</url>
+                                <contentType>{{player_stream_content_type}}</contentType>
+                                <width>{{player_width}}</width>
+                                <height>{{player_height}}</height>
+                            </stream>
+                            <thumbnail>{{player_image}}</thumbnail>
+                            <htmlUrl>{{player_url}}</htmlUrl>
+                        </player>
+                        <text class="title">{{title}}</text>
+                        <text class="secondary">By {{artist}}</text>
+                        <text class="secondary">{{description}}</text>
+                    </container>
+                    <container class="cta_outer" id="master" visibleChildIndex="0">
+                        <container onTap="onclick" width="fill">
+                            <container class="cta_row">
+                                <container class="cta_padder">
+                                    <container class="cta_padder_inner">
+                                        <text class="cta_text">Vote</text>
+                                    </container>
+                                </container>
+                            </container>
+                        </container>
+                        <container width="fill">
+                            <text class="response_success">{{response}} {{count}} people are full!</text>
+                            <container width="fill">
+                                <container class="cta_row">
+                                    <container class="cta_padder">
+                                        <container class="cta_padder_inner">
+                                            <text class="cta_text" onTap="compose_status">{{cta}}</text>
+                                        </container>
+                                    </container>
+                                </container>
+                            </container>
+                        </container>
+                        <container>
+                            <text class="response_failure">Error: onload failure.</text>
+                        </container>
+                        <container>
+                            <text class="response_failure">Error: onclick failure.</text>
+                        </container>
+                        <container>
+                            <text class="response_failure">Thanks for sharing!</text>
+                        </container>
+                    </container>
+                </container>
+            </root>
+        </roots>
+    </card>
+</document>

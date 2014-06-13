@@ -1,0 +1,236 @@
+<document xmlns="http://schemas.twitter.com/cards/4.0">
+	<fields>
+
+      <url name="card_url">
+        <sources>
+          <metaTag>twitter:url:landing_url</metaTag>
+        </sources>
+      </url>
+
+	  <text name="app_id">
+	    <sources>
+	      <app>identifier</app>
+	    </sources>
+	  </text>
+
+	  <text name="app_name">
+	    <sources>
+	      <app>name</app>
+	    </sources>
+	  </text>
+
+	  <appUrl name="app_url" expanded="app_url_resolved">
+	    <sources>
+	      <metaTag>
+	        <iPhone>twitter:app:url:iphone</iPhone>
+	        <iPad>twitter:app:url:ipad</iPad>
+	        <googlePlay>twitter:app:url:googleplay</googlePlay>
+	      </metaTag>
+	    </sources>
+	  </appUrl>
+	</fields>		
+  <component>
+    <name>button</name>
+	  <styles>
+	    <style name="cta_outer">
+	      <width>fill</width>
+	      <margin>4,0,4,0</margin>
+	    </style>
+	    <style name="cta_outer" devices="iPad">
+	      <margin>13,0,0,0</margin>
+	    </style>
+	    <style name="cta_outer" devices="Android">
+	      <margin>12,0,4,0</margin>
+	    </style>
+        <style name="cta_row">
+          <layout>horizontal</layout>
+          <width>fill</width>
+        </style>
+        <style name="cta_download">
+          <margin>4,0,4,0</margin>
+          <layout>horizontal</layout>
+          <width>fill</width>
+          <fontSize>10</fontSize>
+          <color>#55acee</color>
+          <maxLines>1</maxLines>
+          <overflow>ellipsis</overflow>
+          <verticalAlign>middle</verticalAlign>
+          <horizontalAlign>middle</horizontalAlign>
+        </style>
+          <style name="cta_padder">
+	      <backgroundColor>#ffffff</backgroundColor>
+	      <borderWidth>1</borderWidth>
+	      <borderColor>#55acee</borderColor>
+	      <width>fill</width>
+	      <height>40</height>
+	      <horizontalAlign>middle</horizontalAlign>
+	      <verticalAlign>middle</verticalAlign>
+	      <cornerRadius>4</cornerRadius>
+	    </style>
+	    <style name="cta_padder_depressed">
+	      <backgroundColor>#55acee</backgroundColor>
+	      <borderWidth>1</borderWidth>
+	      <borderColor>#55acee</borderColor>
+	      <width>fill</width>
+	      <height>40</height>
+	      <horizontalAlign>middle</horizontalAlign>
+	      <verticalAlign>middle</verticalAlign>
+	      <cornerRadius>4</cornerRadius>
+	    </style>
+	    <style name="cta_padder" devices="iPad">
+	      <width>fit</width>
+	    </style>
+	    <style name="cta_padder_inner">
+	      <width>fill</width>
+	      <layout>horizontal</layout>
+	      <margin>6,10</margin>
+	      <verticalAlign>middle</verticalAlign>
+	    </style>
+	    <style name="cta_padder_inner" devices="iPad">
+	      <width>fit</width>
+	    </style>
+	    <style name="cta_text">
+	      <width>fill</width>
+	      <color>#55acee</color>
+	      <fontSize>14</fontSize>
+	      <maxLines>1</maxLines>
+	      <overflow>ellipsis</overflow>
+	      <verticalAlign>middle</verticalAlign>
+	      <horizontalAlign>middle</horizontalAlign>
+	    </style>
+	    <style name="cta_text_depressed">
+	      <width>fill</width>
+	      <color>#ffffff</color>
+	      <fontSize>14</fontSize>
+	      <maxLines>1</maxLines>
+	      <overflow>ellipsis</overflow>
+	      <verticalAlign>middle</verticalAlign>
+	      <horizontalAlign>middle</horizontalAlign>
+	    </style>
+	    <style name="cta_text" devices="iPad">
+	      <width>fit</width>
+	      <maxWidth>564</maxWidth>
+	    </style>
+	    <style name="cta_text" devices="Web">
+	      <width>fit</width>
+	      <horizontalAlign>start</horizontalAlign>
+	    </style>
+	  </styles>
+    <actions>
+      <action id="footer_open_app_url">
+        <openAppUrl>
+          <tco>{{app_url}}</tco>
+          <display>{{app_url_resolved}}</display>
+          <appId>{{app_id}}</appId>
+        </openAppUrl>
+      </action>
+      <action id="footer_open_store">
+        <openStore>
+          <appId>{{app_id}}</appId>
+        </openStore>
+      </action>
+      <action id="footer_open_url">
+        <openUrl>
+          <tco>{{card_url}}</tco>
+          <display>{{card_url}}</display>
+        </openUrl>
+      </action>
+      <action id="open_url_popup_menu">
+        <openUrlPopupMenu>
+          <tco>{{card_url}}</tco>
+          <display>{{card_url}}</display>
+        </openUrlPopupMenu>
+      </action>
+      <action id="open_app_button_depressed">
+          <applyStyles>
+            <style element="openapp_cta_padder">cta_padder_depressed</style>
+            <style element="openinapp">cta_text_depressed</style>
+          </applyStyles>
+      </action>
+      <action id="open_app_button_normal">
+          <applyStyles>
+            <style element="openapp_cta_padder">cta_padder</style>
+            <style element="openinapp">cta_text</style>
+          </applyStyles>
+      </action>
+      <action id="get_app_button_depressed">
+          <applyStyles>
+            <style element="getapp_cta_padder">cta_padder_depressed</style>
+            <style element="getapp">cta_text_depressed</style>
+          </applyStyles>
+      </action>
+      <action id="get_app_button_normal">
+          <applyStyles>
+            <style element="getapp_cta_padder">cta_padder</style>
+            <style element="getapp">cta_text</style>
+          </applyStyles>
+      </action>
+      <action id="open_app_url">
+        <openAppUrl>
+          <tco>{{app_url}}</tco>
+          <display>{{app_url_resolved}}</display>
+          <appId>{{app_id}}</appId>
+        </openAppUrl>
+      </action>
+      <action id="open_store">
+        <openStore>
+          <appId>{{app_id}}</appId>
+        </openStore>
+      </action>
+      <action id="open_card_url">
+        <openUrl>
+          <tco>{{card_url}}</tco>
+          <display>{{card_url}}</display>
+        </openUrl>
+      </action>
+    </actions>
+    <container width="fill">
+
+		<container width="fill" layout="vertical" devices="Web">
+
+		    <container class="cta_outer">
+                <container class="cta_row" onTap="open_card_url">
+                  <text class="cta_text" >View on Web</text>
+                </container>
+		    </container>
+
+		</container>
+		<container width="fill" layout="vertical" devices="iPhone,iPad,Android">
+
+		    <container class="cta_outer">
+		      <if canOpenUrl="app_url_resolved,app_id">
+		        <then>
+		          <container class="cta_row">
+		            <container id="openapp_cta_padder" class="cta_padder" onPressDown="open_app_button_depressed" onPressUp="open_app_button_normal" onTap="footer_open_app_url" onLongPress="open_url_popup_menu">
+		              <container class="cta_padder_inner">
+		                <text id="openinapp" class="cta_text" >Open in App</text>
+		              </container>
+		            </container>
+		          </container>
+		        </then>
+		        <else>
+		          <container width="fill" layout="vertical">
+                    <container class="cta_row">
+                      <container id="getapp_cta_padder" class="cta_padder" onPressDown="get_app_button_depressed" onPressUp="get_app_button_normal" onTap="open_card_url" onLongPress="open_url_popup_menu">
+                        <container class="cta_padder_inner">
+                          <text id="getapp" class="cta_text" >View on site</text>
+                        </container>
+                      </container>
+                    </container>
+                      <if exists="app_id">
+                        <then>
+                          <container class="cta_download" onTap="footer_open_store" onLongPress="open_url_popup_menu">
+                              <text class="cta_download" >Download App</text>
+                          </container>
+                        </then>
+                      </if>
+                  </container>
+		        </else>
+		      </if>
+		    </container>
+
+		</container>
+
+    </container>
+  </component>
+</document>

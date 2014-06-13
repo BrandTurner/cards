@@ -1,0 +1,46 @@
+<document xmlns="http://schemas.twitter.com/cards/4.0">
+    <fields>
+        <user name="creator">
+            <sources>
+                <metaTag>
+                    <userId>twitter:creator:id</userId>
+                    <screenName>twitter:creator</screenName>
+                </metaTag>
+            </sources>
+        </user>
+    </fields>
+    <component>
+        <name>byline</name>
+        <styles>
+            <style name="byline">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>5,10,0,0</margin>
+                <color>#8899a6</color>
+                <fontSize>12</fontSize>
+                <maxLines>1</maxLines>
+                <overflow>ellipsis</overflow>
+            </style>
+            <style name="byline" devices="Android">
+                <margin>0,10,0,0</margin>
+                <fontSize>14</fontSize>
+            </style>
+            <style name="byline" devices="iPad">
+                <margin>0,10,0,0</margin>
+                <fontSize>14</fontSize>
+            </style>
+        </styles>
+        <actions>
+            <action id="open_creator_profile">
+                <openProfile>{{creator.id}}</openProfile>
+            </action>
+        </actions>
+        <container width="fill">
+            <if exists="creator">
+                <then>
+                    <text class="byline" onTap="open_creator_profile" >By {{creator.name}} @{{creator.screen_name}}</text>
+                </then>
+            </if>
+        </container>
+    </component>
+</document>

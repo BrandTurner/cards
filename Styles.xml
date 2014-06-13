@@ -1,0 +1,72 @@
+<document xmlns="http://schemas.twitter.com/cards/4.0">
+	<styles>
+		<style name="cta_outer">
+			<width>fill</width>
+			<margin>18,0,4,0</margin>
+		</style>
+		<style name="cta_outer" devices="iPad">
+			<margin>13,0,0,0</margin>
+		</style>
+		<style name="cta_outer" devices="Android">
+			<margin>12,0,4,0</margin>
+		</style>
+		<style name="cta_row">
+			<layout>horizontal</layout>
+			<width>fill</width>
+		</style>
+		<style name="cta_padder">
+			<backgroundColor>#ffffff</backgroundColor>
+			<borderWidth>1</borderWidth>
+			<borderColor>#55acee</borderColor>
+			<width>fill</width>
+			<height>40</height>
+			<horizontalAlign>middle</horizontalAlign>
+			<verticalAlign>middle</verticalAlign>
+			<cornerRadius>4</cornerRadius>
+		</style>
+		<style name="cta_padder_depressed">
+			<backgroundColor>#55acee</backgroundColor>
+			<borderWidth>1</borderWidth>
+			<borderColor>#55acee</borderColor>
+			<width>fill</width>
+			<height>40</height>
+			<horizontalAlign>middle</horizontalAlign>
+			<verticalAlign>middle</verticalAlign>
+			<cornerRadius>4</cornerRadius>
+		</style>
+		<style name="cta_padder" devices="iPad">
+			<width>fit</width>
+		</style>
+		<style name="cta_padder_inner">
+			<width>fill</width>
+			<layout>horizontal</layout>
+			<margin>6,10</margin>
+			<verticalAlign>middle</verticalAlign>
+		</style>
+		<style name="cta_padder_inner" devices="iPad">
+			<width>fit</width>
+		</style>
+		<style name="cta_text">
+			<width>fill</width>
+			<color>#55acee</color>
+			<fontSize>14</fontSize>
+			<maxLines>1</maxLines>
+			<overflow>ellipsis</overflow>
+			<verticalAlign>middle</verticalAlign>
+			<horizontalAlign>middle</horizontalAlign>
+		</style>
+		<style name="cta_text_depressed">
+			<width>fill</width>
+			<color>#ffffff</color>
+			<fontSize>14</fontSize>
+			<maxLines>1</maxLines>
+			<overflow>ellipsis</overflow>
+			<verticalAlign>middle</verticalAlign>
+			<horizontalAlign>middle</horizontalAlign>
+		</style>
+		<style name="cta_text" devices="iPad">
+			<width>fit</width>
+			<maxWidth>564</maxWidth>
+		</style>
+	</styles>
+</document>
