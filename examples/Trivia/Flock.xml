@@ -1,0 +1,485 @@
+<document xmlns="http://schemas.twitter.com/cards/4.0">
+    <fields>
+        <image name="logo">
+            <constraints desiredHeight="50" desiredWidth="50" />
+        </image>
+        <url name="logo_url" />
+        
+         <!-- Caption specific fields -->
+        <image name="photo_image">
+            <sources>
+                <metaTag>twitter:image:mypicture:src</metaTag>
+                <metaTag>twitter:image:mypicture</metaTag>
+            </sources>
+            <constraints desiredWidth="200" desiredHeight="150" />
+        </image>
+        <image name="photo_image_success">
+            <sources>
+                <metaTag>twitter:image:mypicture_success:src</metaTag>
+                <metaTag>twitter:image:mypicture_success</metaTag>
+            </sources>
+            <constraints desiredWidth="200" desiredHeight="150" />
+        </image>
+        <image name="photo_image_full_size">
+            <sources>
+                <metaTag>twitter:image:mypicture:src</metaTag>
+                <metaTag>twitter:image:mypicture</metaTag>
+            </sources>
+            <constraints desiredWidth="800" desiredHeight="600" />
+        </image>
+
+        <!-- TODO Use User Stuff-->
+        <user name="user">
+            <sources>
+                <constant>0</constant>
+            </sources>
+            <attributes>
+                <attribute name="viewing_user_obfuscated_email_address">obfuscatedEmailAddress</attribute>
+            </attributes>
+        </user>
+        <text name="answer">
+            <sources>
+                <metaTag>twitter:text:answer</metaTag>
+                <constant>"Placeholder Answer"</constant>
+            </sources>
+        </text>
+        <text name="war">
+            <sources>
+                <metaTag>twitter:text:war</metaTag>
+            </sources>
+        </text>
+        <text name="response">
+            <sources>
+                <metaTag>twitter:text:response</metaTag>
+            </sources>
+        </text>
+        <text name="count">
+            <sources>
+                <metaTag>twitter:text:count</metaTag>
+            </sources>
+        </text>
+        <text name="cta">
+            <sources>
+                <metaTag>twitter:text:cta</metaTag>
+            </sources>
+        </text>
+        <text name="tweet_text">
+            <sources>
+                <metaTag>twitter:text:cta_text</metaTag>
+            </sources>
+        </text>
+    </fields>
+    <card>
+        <name>flock</name>
+        <requiredFields>
+            <field>title</field>
+            <field>site</field>
+        </requiredFields>
+        <forward name="forward_summary_tweetdetail">
+            <field full="card_url" forward="card_url"/>
+            <field full="title" forward="title"/>
+            <field full="site" forward="site"/>
+        </forward>
+        <styles>
+            <style name="photo_image">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>0,0,0,0</margin>
+                <fillAvailableSpace>true</fillAvailableSpace>
+            </style>
+            <style name="logo_image_container">
+                <width>60</width>
+                <height>60</height>
+                <horizontalAlign>middle</horizontalAlign>
+                <verticalAlign>middle</verticalAlign>
+                <margin>0,12,0,0</margin>
+            </style>
+            <style name="logo_image">
+                <height>fill</height>
+                <width>fill</width>
+                <horizontalAlign>middle</horizontalAlign>
+                <verticalAlign>start</verticalAlign>
+            </style>
+            <style name="response_success">
+                <width>fit</width>
+                <margin>0,0,8,0</margin>
+                <color>#00FF00</color>
+                <fontSize>18</fontSize>
+                <maxLines>2</maxLines>
+                <overflow>ellipsis</overflow>
+                <lineHeight>1.0</lineHeight>
+                <horizontalAlign>middle</horizontalAlign>
+            </style>
+            <style name="response_failure">
+                <width>fit</width>
+                <margin>0,0,0,0</margin>
+                <color>#FF0000</color>
+                <fontSize>18</fontSize>
+                <maxLines>2</maxLines>
+                <overflow>ellipsis</overflow>
+                <lineHeight>1.0</lineHeight>
+            </style>
+
+            <!-- IMAGE CONTAINER -->
+            <style name="horizontal_image_container">
+                <width>fill</width>
+                <height>fit</height>
+                <layout>horizontal</layout>
+                <margin>0,0,4,0</margin>
+            </style>
+
+            <!-- VISIBLE CHILD INDEX -->
+            <style name="choose_zero">
+                <visibleChildIndex>0</visibleChildIndex>
+            </style>
+            <style name="choose_one">
+                <visibleChildIndex>1</visibleChildIndex>
+            </style>
+            <style name="choose_two">
+                <visibleChildIndex>2</visibleChildIndex>
+            </style>
+            <style name="choose_three">
+                <visibleChildIndex>3</visibleChildIndex>
+            </style>
+            <style name="choose_four">
+                <visibleChildIndex>4</visibleChildIndex>
+            </style>
+
+            <!-- PHOTO STYLES -->
+            <style name="horizontal_image_container">
+                <width>fill</width>
+                <height>fit</height>
+                <layout>horizontal</layout>
+                <margin>0,0,18,0</margin>
+            </style>
+
+        </styles>
+        <apiEndpoints>
+            <apiEndpoint id="proxy_onload">
+                <externalRequest method="GET" url="https://raw.githubusercontent.com/ryankicks/cards/master/responses/flock_onload.json">
+                </externalRequest>
+            </apiEndpoint>
+            <apiEndpoint id="proxy_onclick">
+                <externalRequest method="GET" url="https://raw.githubusercontent.com/ryankicks/cards/master/responses/flock_onclick.json">
+                </externalRequest>
+            </apiEndpoint>
+            <apiEndpoint id="proxy_onclick2">
+                <externalRequest method="GET" url="http://echo.jsontest.com/answer/incorrect/war/peace">
+                </externalRequest>
+            </apiEndpoint>
+            <apiEndpoint id="proxy_onclick3">
+                <externalRequest method="GET" url="http://echo.jsontest.com/answer/correct/war/peace">
+                </externalRequest>
+            </apiEndpoint>
+            <apiEndpoint id="proxy_onclick4">
+                <externalRequest method="GET" url="http://echo.jsontest.com/answer/incorrect/war/peace">
+                </externalRequest>
+            </apiEndpoint>
+            <apiEndpoint id="proxy_onclick5">
+                <externalRequest method="GET" url="http://echo.jsontest.com/answer/incorrect/war/peace">
+                </externalRequest>
+            </apiEndpoint>
+        </apiEndpoints>
+        <actions>
+            <!-- Photo Actions -->
+            <action id="open_photo">
+                <openPhoto />
+            </action>
+
+            <!-- Answer Actions -->
+            <action id="choose_zero">
+                <applyStyles>
+                    <style element="master">choose_zero</style>
+                </applyStyles>
+            </action>
+            <action id="choose_one">
+                <applyStyles>
+                    <style element="master">choose_one</style>
+                </applyStyles>
+            </action>
+            <action id="choose_two">
+                <applyStyles>
+                    <style element="master">choose_two</style>
+                </applyStyles>
+            </action>
+            <action id="choose_three">
+                <applyStyles>
+                    <style element="master">choose_three</style>
+                </applyStyles>
+            </action>
+
+            <!-- API Actions -->
+            <action id="onload">
+                <apiRequest onRequestFailure="onload_failure" apiEndpoint="proxy_onload" />
+            </action>
+            <action id="onload_failure">
+                <applyStyles>
+                    <style element="master">choose_two</style>
+                </applyStyles>
+            </action>
+            <action id="onclick">
+                <apiRequest apiEndpoint="proxy_onclick" onRequestFailure="onclick_failure" onRequestSuccess="onclick_success" />
+            </action>
+            
+            <action id="onclick_success">
+                <applyStyles>
+                    <style element="master">choose_one</style>
+                </applyStyles>
+            </action>
+            
+            <action id="onclick_failure">
+                <applyStyles>
+                    <style element="master">choose_three</style>
+                </applyStyles>
+            </action>
+            
+            <action id="compose_tweet_success">
+                <applyStyles>
+                    <style element="master">choose_four</style>
+                </applyStyles>
+            </action>
+            <action id="compose_status" onSuccess="compose_tweet_success">
+                <composeTweet >{{tweet_text}}</composeTweet>
+            </action>
+
+            <!-- Answer 1 -->
+            <action id="onclick2">
+                <apiRequest apiEndpoint="proxy_onclick2" onRequestFailure="onclick_failure2" onRequestSuccess="onclick_success2" />
+            </action>
+            <action id="onclick_success2">
+                <applyStyles>
+                    <style element="slave">choose_one</style>
+                </applyStyles>
+            </action>
+            <action id="onclick_failure2">
+                <applyStyles>
+                    <style element="slave">choose_three</style>
+                </applyStyles>
+            </action>
+
+            <!-- Answer 2 -->
+            <action id="onclick3">
+                <apiRequest apiEndpoint="proxy_onclick3" onRequestFailure="onclick_failure3" onRequestSuccess="onclick_success3" />
+            </action>
+            <action id="onclick_success3">
+                <applyStyles>
+                    <style element="slave2">choose_one</style>
+                </applyStyles>
+            </action>
+            <action id="onclick_failure3">
+                <applyStyles>
+                    <style element="slave2">choose_three</style>
+                </applyStyles>
+            </action>
+
+            <!-- Answer 3 -->
+            <action id="onclick4">
+                <apiRequest apiEndpoint="proxy_onclick4" onRequestFailure="onclick_failure4" onRequestSuccess="onclick_success4" />
+            </action>
+            <action id="onclick_success4">
+                <applyStyles>
+                    <style element="slave3">choose_one</style>
+                </applyStyles>
+            </action>
+            <action id="onclick_failure4">
+                <applyStyles>
+                    <style element="slave3">choose_three</style>
+                </applyStyles>
+            </action>
+
+              <!-- Answer 4 -->
+            <action id="onclick5">
+                <apiRequest apiEndpoint="proxy_onclick5" onRequestFailure="onclick_failure5" onRequestSuccess="onclick_success5" />
+            </action>
+            <action id="onclick_success5">
+                <applyStyles>
+                    <style element="slave4">choose_one</style>
+                </applyStyles>
+            </action>
+            <action id="onclick_failure5">
+                <applyStyles>
+                    <style element="slave4">choose_three</style>
+                </applyStyles>
+            </action>
+
+        </actions>
+        <roots>
+            <root devices="Web,iPhone,iPad,Android" platformMin="6">
+                <container width="fill">
+                    <component name="attribution"/>
+                    
+                    <container layout="horizontal" width="fill">
+                        <component name="title" />
+                    </container>
+
+                    <container width="fill">
+                        <component name="description"/>
+                    </container>
+                    
+                    <!-- User Image -->
+                    <container width="fill" class="horizontal_image_container">
+                        <image class="photo_image" onTap="open_photo">
+                            <src>{{photo_image}}</src>
+                            <srcFull>{{photo_image_full_size}}</srcFull>
+                        </image>
+                    </container>
+
+                    <!-- Correct Image Section -->
+                    <container id="master" visibleChildIndex="0" width="fill">
+                        <text>
+                            This is option 2
+                        </text>
+
+                         <text>
+                            This is option 2
+                        </text>
+
+                         <text>
+                            This is option 3
+                        </text>
+
+                         <text>
+                            This is option 4
+                        </text>
+                    </container>
+
+                    <!-- Answer 1 -->
+                   <!-- <container class="cta_outer" id="slave" >
+                        <container onTap="onclick2" width="fill">
+                            <container class="cta_row">
+                                <container class="cta_padder">
+                                    <container class="cta_padder_inner">
+                                        <text class="cta_text">Alexandria</text>
+                                    </container>
+                                </container>
+                            </container>
+                        </container>
+                        <container width="fill">
+                            <text class="response_success">You are {{answer}}</text>
+                            <container width="fill">
+                                <container class="cta_row">
+                                    <container class="cta_padder">
+                                        <container class="cta_padder_inner">
+                                            <text class="cta_text" onTap="compose_status">{{cta}}</text>
+                                        </container>
+                                    </container>
+                                </container>
+                            </container>
+                        </container>
+                        <container>
+                            <text class="response_failure">Error: onload failure.</text>
+                        </container>
+                        <container>
+                            <text class="response_failure">Error: onclick failure.</text>
+                        </container>
+                        <container>
+                            <text class="response_failure">Thanks for sharing!</text>
+                        </container>
+                    </container>-->
+
+                     <!-- Answer 2 -->
+                    <container class="cta_outer" id="slave2" visibleChildIndex="0">
+                        <container onTap="onclick3" width="fill">
+                            <container class="cta_row">
+                                <container class="cta_padder">
+                                    <container class="cta_padder_inner">
+                                        <text class="cta_text">Babylon</text>
+                                    </container>
+                                </container>
+                            </container>
+                        </container>
+                        <container width="fill">
+                            <text class="response_success">You are {{answer}}</text>
+                            <container width="fill">
+                                <container class="cta_row">
+                                    <container class="cta_padder">
+                                        <container class="cta_padder_inner">
+                                            <text class="cta_text" onTap="compose_status">{{cta}}</text>
+                                        </container>
+                                    </container>
+                                </container>
+                            </container>
+                        </container>
+                        <container>
+                            <text class="response_failure">Error: onload failure.</text>
+                        </container>
+                        <container>
+                            <text class="response_failure">Error: onclick failure.</text>
+                        </container>
+                        <container>
+                            <text class="response_failure">Thanks for sharing!</text>
+                        </container>
+                    </container>
+
+                     <!-- Answer 3 -->
+                    <container class="cta_outer" id="slave3" visibleChildIndex="0">
+                        <container onTap="onclick4" width="fill">
+                            <container class="cta_row">
+                                <container class="cta_padder">
+                                    <container class="cta_padder_inner">
+                                        <text class="cta_text">Athens</text>
+                                    </container>
+                                </container>
+                            </container>
+                        </container>
+                        <container width="fill">
+                            <text class="response_success">You are {{answer}}</text>
+                            <container width="fill">
+                                <container class="cta_row">
+                                    <container class="cta_padder">
+                                        <container class="cta_padder_inner">
+                                            <text class="cta_text" onTap="compose_status">{{cta}}</text>
+                                        </container>
+                                    </container>
+                                </container>
+                            </container>
+                        </container>
+                        <container>
+                            <text class="response_failure">Error: onload failure.</text>
+                        </container>
+                        <container>
+                            <text class="response_failure">Error: onclick failure.</text>
+                        </container>
+                        <container>
+                            <text class="response_failure">Thanks for sharing!</text>
+                        </container>
+                    </container>
+
+                     <!-- Answer 4 -->
+                    <container class="cta_outer" id="slave4" visibleChildIndex="0">
+                        <container onTap="onclick5" width="fill">
+                            <container class="cta_row">
+                                <container class="cta_padder">
+                                    <container class="cta_padder_inner">
+                                        <text class="cta_text">Constantinople</text>
+                                    </container>
+                                </container>
+                            </container>
+                        </container>
+                        <container width="fill">
+                            <text class="response_success">You are {{answer}}</text>
+                            <container width="fill">
+                                <container class="cta_row">
+                                    <container class="cta_padder">
+                                        <container class="cta_padder_inner">
+                                            <text class="cta_text" onTap="compose_status">{{cta}}</text>
+                                        </container>
+                                    </container>
+                                </container>
+                            </container>
+                        </container>
+                        <container>
+                            <text class="response_failure">Error: onload failure.</text>
+                        </container>
+                        <container>
+                            <text class="response_failure">Error: onclick failure.</text>
+                        </container>
+                        <container>
+                            <text class="response_failure">Thanks for sharing!</text>
+                        </container>
+                    </container>
+                </container>
+            </root>
+        </roots>
+    </card>
+</document>

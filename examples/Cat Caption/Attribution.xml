@@ -1,0 +1,70 @@
+<document xmlns="http://schemas.twitter.com/cards/4.0">
+    <fields>
+        <user name="site">
+            <sources>
+                <metaTag>
+                    <userId>twitter:site:id</userId>
+                    <screenName>twitter:site</screenName>
+                </metaTag>
+                <whitelistSiteId />
+            </sources>
+        </user>
+    </fields>
+    <component>
+        <name>attribution</name>
+        <styles>
+            <style name="attribution">
+                <width>fill</width>
+                <margin>0,0,8,0</margin>
+                <layout>horizontal</layout>
+                <verticalAlign>middle</verticalAlign>
+            </style>
+            <style name="attribution" devices="iPad">
+                <margin>0,0,8,0</margin>
+            </style>
+            <style name="attribution_image">
+                <width>18</width>
+                <height>18</height>
+                <margin>0,5,0,0</margin>
+                <verticalAlign>middle</verticalAlign>
+            </style>
+            <style name="attribution_image" devices="iPhone,iPad">
+                <cornerRadius>3</cornerRadius>
+            </style>
+            <style name="attribution_text">
+                <width>fill</width>
+                <color>#292f33</color>
+                <fontSize>12</fontSize>
+                <maxLines>1</maxLines>
+                <fontBold>true</fontBold>
+                <verticalAlign>middle</verticalAlign>
+            </style>
+            <style name="attribution_text" devices="Android">
+                <fontSize>14</fontSize>
+                <margin>1,0,0,0</margin>
+                <lineHeight>0.86</lineHeight>
+            </style>
+            <style name="attribution_text" devices="iPad">
+                <width>fill</width>
+                <fontSize>14</fontSize>
+            </style>
+        </styles>
+        <actions>
+            <action id="attribution_open_site_profile">
+                <openProfile>{{site.id}}</openProfile>
+            </action>
+        </actions>
+        <container width="fill">
+            <if exists="site">
+                <then>
+                    <container class="attribution" onTap="attribution_open_site_profile">
+                        <image class="attribution_image">
+                            <src>{{site.profile_image_url}}</src>
+                        </image>
+                        <text class="attribution_text" >{{site.name}}</text>
+                    </container>
+                </then>
+            </if>
+        </container>
+    </component>
+</document>

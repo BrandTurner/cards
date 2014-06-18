@@ -1,0 +1,115 @@
+<document xmlns="http://schemas.twitter.com/cards/4.0">
+    <fields>
+        
+        <!-- Caption specific fields -->
+        <image name="photo_image">
+            <sources>
+                <metaTag>twitter:image:mypicture:src</metaTag>
+                <metaTag>twitter:image:mypicture</metaTag>
+            </sources>
+            <constraints desiredWidth="200" desiredHeight="150" />
+        </image>
+        <image name="photo_image_success">
+            <sources>
+                <metaTag>twitter:image:mypicture_success:src</metaTag>
+                <metaTag>twitter:image:mypicture_success</metaTag>
+            </sources>
+            <constraints desiredWidth="200" desiredHeight="150" />
+        </image>
+        <image name="photo_image_full_size">
+            <sources>
+                <metaTag>twitter:image:mypicture:src</metaTag>
+                <metaTag>twitter:image:mypicture</metaTag>
+            </sources>
+            <constraints desiredWidth="800" desiredHeight="600" />
+        </image>
+        <tweet />
+        <!-- Tweet Compose -->
+        <text name="cta">
+            <sources>
+                <metaTag>twitter:text:cta</metaTag>
+            </sources>
+        </text>
+        <text name="tweet_text">
+            <sources>
+                <metaTag>twitter:text:tweetcompose</metaTag>
+            </sources>
+        </text>
+    </fields>
+    <card>
+        <name>caption</name>
+        <requiredFields>
+            <field>photo_image</field>
+            <field>photo_image_success</field>
+            <field>photo_image_full_size</field>
+            <field>cta</field>
+            <field>tweet_text</field>
+        </requiredFields>
+        <styles>
+            <style name="horizontal_container">
+                <layout>horizontal</layout>
+                <width>fill</width>
+            </style>
+            <style name="photo_image">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>0,0,0,0</margin>
+                <fillAvailableSpace>true</fillAvailableSpace>
+            </style>
+            <style name="image_container">
+                <width>fill</width>
+                <height>fit</height>
+                <layout>vertical</layout>
+            </style>
+            <style name="horizontal_image_container">
+                <width>fill</width>
+                <height>fit</height>
+                <layout>horizontal</layout>
+                <margin>0,0,18,0</margin>
+            </style>
+            <style name="show_result">
+                <visibleChildIndex>1</visibleChildIndex>
+            </style>
+        </styles>
+        <actions>
+            <action id="open_photo">
+                <openPhoto />
+            </action>
+            <action id="compose_status" onSuccess="compose_tweet_success">
+                <composeTweet >{{tweet_text}}</composeTweet>
+            </action>
+            <action id="compose_tweet_success">
+                <applyStyles>
+                    <style element="master">show_result</style>
+                </applyStyles>
+            </action>
+        </actions>
+        <roots>
+            <root>
+                <container width="fill">
+                    <component name="attribution" />
+                    <component name="title" />
+                    <component name="description" />
+                    <!-- User Image -->
+                    <container id="master" visibleChildIndex="0" width="fill" class="horizontal_image_container">
+                        <image class="photo_image" onTap="open_photo">
+                            <src>{{photo_image}}</src>
+                            <srcFull>{{photo_image_full_size}}</srcFull>
+                        </image>
+                        <image class="photo_image" onTap="open_photo">
+                            <src>{{photo_image}}</src>
+                            <srcFull>{{photo_image_full_size}}</srcFull>
+                        </image>
+                    </container>
+                    <container class="cta_row">
+                        <container class="cta_padder">
+                            <container class="cta_padder_inner">
+                                <text onTap="compose_status" class="cta_text" >{{cta}}</text>
+                            </container>
+                        </container>
+                    </container>
+                </container>
+            </root>
+        </roots>
+    </card>
+</document>
