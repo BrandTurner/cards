@@ -1,0 +1,37 @@
+<document xmlns="http://schemas.twitter.com/cards/4.0">
+    <fields>
+        <text name="description">
+            <sources>
+                <metaTag>twitter:text:description</metaTag>
+            </sources>
+            <constraints maxLength="200" />
+        </text>
+    </fields>
+    <component>
+        <name>description</name>
+        <requiredFields>
+            <field>description</field>
+        </requiredFields>
+        <styles>
+            <style name="description">
+                <width>fill</width>
+                <margin>6,8,6,0</margin>
+                <color>#292f33</color>
+                <fontSize>14</fontSize>
+                <maxLines>4</maxLines>
+                <lineHeight>1.11</lineHeight>
+                <overflow>ellipsis</overflow>
+            </style>
+            <style name="description" devices="Android">
+                <lineHeight>0.86</lineHeight>
+                <fontSize>14</fontSize>
+            </style>
+            <style name="description" devices="iPad">
+                <fontSize>14</fontSize>
+            </style>
+        </styles>
+        <container width="fill">
+            <text class="description" >{{description}}</text>
+        </container>
+    </component>
+</document>

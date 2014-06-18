@@ -1,0 +1,458 @@
+<document xmlns="http://schemas.twitter.com/cards/4.0">
+    <fields>
+        
+        <text name="info_data0">
+            <sources>
+                <metaTag>twitter:text:data0</metaTag>
+            </sources>
+        </text>
+        <text name="info_data1">
+            <sources>
+                <metaTag>twitter:text:data1</metaTag>
+            </sources>
+        </text>
+        
+        <text name="info_data2">
+            <sources>
+                <metaTag>twitter:text:data2</metaTag>
+            </sources>
+        </text>
+        <text name="info_label0">
+            <sources>
+                <metaTag>twitter:text:label0</metaTag>
+            </sources>
+        </text>
+        <text name="info_label1">
+            <sources>
+                <metaTag>twitter:text:label1</metaTag>
+            </sources>
+        </text>
+        <text name="info_label2">
+            <sources>
+                <metaTag>twitter:text:label2</metaTag>
+            </sources>
+        </text>
+        
+         <text name="player_stream_url">
+            <sources>
+                <metaTag>twitter:player:stream:url</metaTag>
+            </sources>
+        </text>
+        
+        <!-- VIDEO PLAYER STUFF -->
+        <text name="player_content">
+            <sources>
+                <metaTag>twitter:player:stream:content</metaTag>
+            </sources>
+            <constraints maxLength="200"/>
+        </text>
+        
+        <text name="player_url">
+            <sources>
+                <metaTag>twitter:player:url</metaTag>
+            </sources>
+            <constraints maxLength="200"/>
+        </text>
+        
+        <text name="player_width">
+            <sources>
+                <metaTag>twitter:image:media:width</metaTag>
+            </sources>
+            <constraints maxLength="4"/>
+        </text>
+        
+        <text name="player_height">
+            <sources>
+                <metaTag>twitter:image:media:height</metaTag>
+            </sources>
+            <constraints maxLength="4"/>
+        </text>
+        
+        <text name="player_stream_content_type">
+            <sources>
+                <metaTag>twitter:player:stream:content</metaTag>
+            </sources>
+            <constraints maxLength="20"/>
+        </text>
+
+        <!-- Movie specific fields -->
+        
+        <image name="rtimage0">
+            <sources>
+                <metaTag>twitter:image:rtimage0:src</metaTag>
+                <metaTag>twitter:image:rtimage0</metaTag>
+            </sources>
+            <constraints desiredWidth="185" desiredHeight="185"/>
+        </image>
+        
+        <image name="rtimage1">
+            <sources>
+                <metaTag>twitter:image:rtimage1:src</metaTag>
+                <metaTag>twitter:image:rtimage1</metaTag>
+            </sources>
+            <constraints desiredWidth="120" desiredHeight="60"/>
+        </image>
+        
+        <url name="rtimage0_url">
+            <sources>
+                <metaTag>twitter:image:rtimage0:url</metaTag>
+            </sources>
+        </url>
+        
+        <url name="rtimage1_url">
+            <sources>
+                <metaTag>twitter:image:rtimage1:url</metaTag>
+            </sources>
+        </url>
+        
+        <url name="cta_url">
+            <sources>
+                <metaTag>twitter:text:cta:url</metaTag>
+            </sources>
+        </url>
+        
+        <text name="time_title">
+            <sources>
+                <metaTag>twitter:text:time_title</metaTag>
+            </sources>
+        </text>
+        
+        <text name="time0">
+            <sources>
+                <metaTag>twitter:text:time0</metaTag>
+            </sources>
+        </text>                
+        
+    </fields>
+    <card>
+        
+        <name>kesha</name>
+        <requiredFields>
+            <field>rtimage0</field>
+            <field>rtimage0_url</field>
+            <field>rtimage1</field>
+            <field>rtimage1_url</field>
+            <field>info_data1</field>
+            <field>info_label1</field>
+            <field>info_data2</field>
+            <field>info_label2</field>
+            <field>time_title</field>
+            <field>time0</field>
+            <field>cta_url</field>
+        </requiredFields>
+        <styles>
+            <style name="horizontal_container">
+                <layout>horizontal</layout>
+                <width>fill</width>
+            </style>
+            <style name="movie_container">
+                <width>fill</width>
+                <height>fit</height>
+                <layout>vertical</layout>
+                <margin>0,0,18,0</margin>
+            </style>
+            <style name="time_container">
+                <width>fill</width>
+                <layout>vertical</layout>
+                <margin>0,0,14,0</margin>
+                <padding>5,7,5,7</padding>
+                <backgroundColor>#dddddd</backgroundColor>
+                <cornerRadius>5</cornerRadius>
+                <borderWidth>1</borderWidth>
+                <borderColor>#eaeaea</borderColor>
+            </style>
+            <style name="time_title">
+                <fontBold>true</fontBold>
+                <margin>4,4,0,0</margin>
+                <fontSize>14</fontSize>
+            </style>
+            <style name="time_list">
+                <layout>horizontal</layout>
+                <width>fill</width>
+            </style>
+            <style name="time">
+                <fontBold>false</fontBold>
+                <margin>0,10,0,0</margin>
+            </style>
+            <style name="info_container">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>12,0,0,0</margin>
+                <layout>vertical</layout>
+            </style>
+            <style name="info_container_inner">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>12,0,0,0</margin>
+                <layout>vertical</layout>
+            </style>
+            <style name="info_container_inner" devices="iPad">
+                <margin>0,0,20,0</margin>
+                <layout>horizontal</layout>
+            </style>
+            <style name="info_horizontal">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>0,0,0,0</margin>
+                <layout>horizontal</layout>
+            </style>
+            <style name="info_image">
+                <width>120</width>
+                <height>120</height>
+                <preserveAspectRatio>true</preserveAspectRatio>
+                <fillAvailableSpace>true</fillAvailableSpace>
+                <horizontalAlign>middle</horizontalAlign>
+                <verticalAlign>middle</verticalAlign>
+                <loadingIndicator>placeholder</loadingIndicator>
+            </style>
+            <style name="data_label_container">
+                <width>fill</width>
+                <height>fit</height>
+                <layout>vertical</layout>
+            </style>
+            <style name="ipad_vertical_container">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>0,0,0,6</margin>
+                <layout>vertical</layout>
+            </style>
+            <style name="ipad_vertical_container">
+                <width>fill</width>
+                <height>fit</height>
+                <color>#333333</color>
+                <fontSize>14</fontSize>
+                <maxLines>2</maxLines>
+                <fontBold>true</fontBold>
+                <overflow>ellipsis</overflow>
+                <lineHeight>1.0</lineHeight>
+            </style>
+            <style name="top">
+                <padding>4,4,4,4</padding>
+            </style>
+            
+            <style name="horizontal_image_container">
+                <width>fit</width>
+                <height>fit</height>
+                <layout>horizontal</layout>
+                <margin>0,0,0,0</margin>
+            </style>
+            <style name="image0">
+                <width>185</width>
+                <preserveAspectRatio>true</preserveAspectRatio>
+                <fillAvailableSpace>true</fillAvailableSpace>
+                <horizontalAlign>middle</horizontalAlign>
+                <verticalAlign>middle</verticalAlign>
+                <loadingIndicator>placeholder</loadingIndicator>
+            </style>
+            <style name="image1">
+                <!--<width>fill</width>-->
+                <fillAvailableSpace>true</fillAvailableSpace>
+                <loadingIndicator>placeholder</loadingIndicator>
+            </style>
+            <style name="divider">
+                <width>fill</width>
+                <height>1</height>
+                <backgroundColor>#e8e8e8</backgroundColor>
+            </style>
+            <style name="data">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>0,0,10,10</margin>
+                <color>#333333</color>
+                <fontSize>14</fontSize>
+                <maxLines>1</maxLines>
+                <fontBold>true</fontBold>
+                <overflow>ellipsis</overflow>
+            </style>
+            <style name="label0">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>10,10,0,10</margin>
+                <color>#999999</color>
+                <fontSize>12</fontSize>
+                <maxLines>1</maxLines>
+                <overflow>ellipsis</overflow>
+            </style>
+            <style name="label1">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>10,10,0,10</margin>
+                <color>#999999</color>
+                <fontSize>12</fontSize>
+                <maxLines>1</maxLines>
+                <overflow>ellipsis</overflow>
+            </style>
+            <style name="label2">
+                <width>fill</width>
+                <height>fit</height>
+                <margin>10,10,0,10</margin>
+                <color>#999999</color>
+                <fontSize>12</fontSize>
+                <maxLines>1</maxLines>
+                <overflow>ellipsis</overflow>
+            </style>
+            
+        </styles>
+        <actions>
+            <action id="open_image0_url">
+                <openUrl>
+                    <tco>{{rtimage0_url}}</tco>
+                    <display>{{rtimage0_url}}</display>
+                </openUrl>
+            </action>
+            <action id="open_image1_url">
+                <openUrl>
+                    <tco>{{rtimage1_url}}</tco>
+                    <display>{{rtimage1_url}}</display>
+                </openUrl>
+            </action>
+            <action id="open_photo">
+                <openPhoto/>
+            </action>
+            <action id="open_cta">
+                <openUrl>
+                    <tco>{{cta_url}}</tco>
+                    <display>{{cta_url}}</display>
+                </openUrl>
+            </action>
+            <action id="footer_open_app_url">
+                <openAppUrl>
+                    <tco>{{app_url}}</tco>
+                    <display>{{app_url_resolved}}</display>
+                    <appId>{{app_id}}</appId>
+                </openAppUrl>
+            </action>
+            <action id="footer_open_store">
+                <openStore>
+                    <appId>{{app_id}}</appId>
+                </openStore>
+            </action>
+            <action id="footer_open_url">
+                <openUrl>
+                    <tco>{{card_url}}</tco>
+                    <display>{{card_url}}</display>
+                </openUrl>
+            </action>
+            <action id="open_url_popup_menu">
+                <openUrlPopupMenu>
+                    <tco>{{card_url}}</tco>
+                    <display>{{card_url}}</display>
+                </openUrlPopupMenu>
+            </action>
+        </actions>
+        <roots>
+            <root>
+                <container width="fill">
+                    <component name="attribution" />
+                    
+                    <component name="title" />
+                    
+                    <container class="info_container" devices="Web,Android">
+                        <container class="info_horizontal">
+                            <image class="image0" onTap="open_image0_url">
+                                <src>{{rtimage0}}</src>
+                            </image>
+                            <container class="ipad_vertical_container">
+                                <container class="data_label_container" onTap="open_image1_url">
+                                    <container class="horizontal_container">
+                                        <image class="image1">
+                                            <src>{{rtimage1}}</src>
+                                        </image>
+                                        <container class="data_label_container">
+                                            <text class="label0">{{info_label0}}</text>
+                                            <text  class="data">{{info_data0}}</text>
+                                        </container>
+                                    </container>
+                                    <text  class="label1">{{info_label1}}</text>
+                                    <text  class="data">{{info_data1}}</text>
+                                    
+                                    <box class="divider" />
+                                    <text  class="label2">{{info_label2}}</text>
+                                    <text  class="data">{{info_data2}}</text>
+                                    
+                                    <box class="divider" />
+                                </container>
+                            </container>
+                        </container>
+                    </container>
+
+                    <container class="info_container" devices="iPhone,iPad">
+                        <container class="info_horizontal">
+                            <image class="image0" onTap="open_image0_url">
+                                <src>{{rtimage0}}</src>
+                            </image>
+                            <container class="ipad_vertical_container">
+                                <container class="data_label_container" >
+                                    <!--<container class="horizontal_container">
+                                        <player height="fill">
+                                            <stream>
+                                                <url>{{player_stream_url}}</url>
+                                                <contentType>{{player_stream_content_type}}</contentType>
+                                                <width>{{player_width}}</width>
+                                                <height>{{player_height}}</height>                                               
+                                            </stream>
+                                            <thumbnail>{{rtimage1}}</thumbnail>
+                                            <htmlUrl>{{player_url}}</htmlUrl>
+                                        </player>
+                                        <container class="data_label_container">
+                                            <text class="label0">{{info_label0}}</text>
+                                            <text  class="data">{{info_data0}}</text>
+                                        </container>
+                                    </container>-->
+                                    <text class="label0">{{info_label0}}</text>
+                                    <text  class="data">{{info_data0}}</text>
+                                    <box class="divider" />
+
+                                    <text  class="label1">{{info_label1}}</text>
+                                    <text  class="data">{{info_data1}}</text>
+                                    
+                                    <box class="divider" />
+                                    <text  class="label2">{{info_label2}}</text>
+                                    <text  class="data">{{info_data2}}</text>
+                                    
+                                    <box class="divider" />
+                                </container>
+                            </container>
+                        </container>
+                    </container>
+                        
+
+                    
+                    <component name="description" />
+                    
+                    <container class="time_container">
+                        
+                        <container>
+                            <text class="time_title" >{{time_title}}</text>
+                        </container>
+                        
+                        <container class="time_list">
+                            <if exists="time0">
+                                <then>
+                                    <text class="time" >{{time0}}</text>
+                                </then>
+                            </if>
+                        </container>
+                        
+                    </container>
+
+                    <container height="300" width="fill" devices="iPad,iPhone">
+                           
+                                <player height="fill">
+                                    <stream>
+                                        <url>{{player_stream_url}}</url>
+                                        <contentType>{{player_stream_content_type}}</contentType>
+                                        <width>{{player_width}}</width>
+                                        <height>{{player_height}}</height>                                               
+                                    </stream>
+                                    <thumbnail>{{rtimage1}}</thumbnail>
+                                    <htmlUrl>{{player_url}}</htmlUrl>
+                                </player>
+                    </container>
+                    
+                    <component name="button"/>
+                </container>
+            </root>
+        </roots>
+    </card>
+</document>
