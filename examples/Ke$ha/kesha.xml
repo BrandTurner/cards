@@ -38,6 +38,8 @@
                 <metaTag>twitter:player:stream:url</metaTag>
             </sources>
         </text>
+
+         
         
         <!-- VIDEO PLAYER STUFF -->
         <text name="player_content">
@@ -49,7 +51,7 @@
         
         <text name="player_url">
             <sources>
-                <metaTag>twitter:player:url</metaTag>
+                <metaTag>twitter:player</metaTag>
             </sources>
             <constraints maxLength="200"/>
         </text>
@@ -347,7 +349,7 @@
                     
                     <component name="title" />
                     
-                    <container class="info_container" devices="Web,Android">
+                    <container class="info_container" devices="Web,Android,iPhone,iPad">
                         <container class="info_horizontal">
                             <image class="image0" onTap="open_image0_url">
                                 <src>{{rtimage0}}</src>
@@ -376,45 +378,7 @@
                         </container>
                     </container>
 
-                    <container class="info_container" devices="iPhone,iPad">
-                        <container class="info_horizontal">
-                            <image class="image0" onTap="open_image0_url">
-                                <src>{{rtimage0}}</src>
-                            </image>
-                            <container class="ipad_vertical_container">
-                                <container class="data_label_container" >
-                                    <!--<container class="horizontal_container">
-                                        <player height="fill">
-                                            <stream>
-                                                <url>{{player_stream_url}}</url>
-                                                <contentType>{{player_stream_content_type}}</contentType>
-                                                <width>{{player_width}}</width>
-                                                <height>{{player_height}}</height>                                               
-                                            </stream>
-                                            <thumbnail>{{rtimage1}}</thumbnail>
-                                            <htmlUrl>{{player_url}}</htmlUrl>
-                                        </player>
-                                        <container class="data_label_container">
-                                            <text class="label0">{{info_label0}}</text>
-                                            <text  class="data">{{info_data0}}</text>
-                                        </container>
-                                    </container>-->
-                                    <text class="label0">{{info_label0}}</text>
-                                    <text  class="data">{{info_data0}}</text>
-                                    <box class="divider" />
-
-                                    <text  class="label1">{{info_label1}}</text>
-                                    <text  class="data">{{info_data1}}</text>
-                                    
-                                    <box class="divider" />
-                                    <text  class="label2">{{info_label2}}</text>
-                                    <text  class="data">{{info_data2}}</text>
-                                    
-                                    <box class="divider" />
-                                </container>
-                            </container>
-                        </container>
-                    </container>
+                    
                         
 
                     
@@ -436,7 +400,7 @@
                         
                     </container>
 
-                    <container height="300" width="fill" devices="iPad,iPhone">
+                    <container height="1000" width="fill" devices="Web,iPad,iPhone">
                            
                                 <player height="fill">
                                     <stream>
